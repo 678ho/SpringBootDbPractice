@@ -26,3 +26,14 @@ public class Memo {
 * Memo클래스는 Lombok의 @Geeter를 이용해서 Getter메서드를 생성하고 @Builder를 이용해서 객체를 생성할 수 있게 처리.
 * @Builder아래 2개의 어노테이션은 @Builder의 컴파일 에러를 방지하기 위한 어노테이션.
 */
+
+/* JpaRepository 상속 구조
+
+    Repository
+        ↑
+    CrudRepository
+        ↑
+    PagingAndSortRepository
+        ↑
+    JpaRepository
+ */
