@@ -70,5 +70,9 @@ public class MemoRepositoryTests {
         System.out.println("Page Size : "+result.getSize()); // 페이지당 데이터 갯수
         System.out.println("has next page? : "+result.hasNext()); // 다음 페이지 존재 여부 확인
         System.out.println("first page? : "+result.isFirst()); // 첫페이지인지 여부 확인
+        System.out.println("---------------------------------------------------------------");
+        for (Memo memo : result.getContent()) {
+            System.out.println(memo);
+        }
     }
 }
