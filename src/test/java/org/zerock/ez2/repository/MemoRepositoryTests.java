@@ -110,8 +110,8 @@ public class MemoRepositoryTests {
         result.get().forEach(memo -> System.out.println(memo));
     }
 
-    @Commit
-    @Transactional
+    @Commit // 최종결과 커밋
+    @Transactional // 테스트코드에는 @Transactional @Commit 을 같이 사용해야한다. ( Delete작업은 select와 delete 작업이 같이 이루어지기 때문.)
     @Test
     public void testDeleteQueryMethods() {
 
