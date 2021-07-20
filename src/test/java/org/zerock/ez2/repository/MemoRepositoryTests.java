@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.test.annotation.Commit;
 import org.zerock.ez2.entity.Memo;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
@@ -106,5 +108,13 @@ public class MemoRepositoryTests {
         Pageable pageable = PageRequest.of(0, 10, Sort.by("mno").descending());
         Page<Memo> result = memoRepository.findByMnoBetween(10L, 50L, pageable);
         result.get().forEach(memo -> System.out.println(memo));
+    }
+
+    @Commit
+    @Transactional
+    @Test
+    public void testDeleteQueryMethods() {
+
+        memoRepository.deleteMemoByMnoLessThan(10L);
     }
 }
